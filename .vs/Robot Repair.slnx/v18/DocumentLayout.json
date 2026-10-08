@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Robot Repair\\Robot Repair\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\robot repair\\robot repair\\assets\\_2dadventuregame\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_2dadventuregame\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Robot Repair\\Robot Repair\\Assets\\_2DAdventureGame\\Scripts\\PlayerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\_2DAdventureGame\\Scripts\\PlayerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\robot repair\\robot repair\\assets\\_2dadventuregame\\scripts\\healthcollectible.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_2dadventuregame\\scripts\\healthcollectible.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\robot repair\\robot repair\\assets\\_2dadventuregame\\scripts\\damagezone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_2dadventuregame\\scripts\\damagezone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +22,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DamageZone.cs",
+              "DocumentMoniker": "C:\\Robot Repair\\Robot Repair\\Assets\\_2DAdventureGame\\Scripts\\DamageZone.cs",
+              "RelativeDocumentMoniker": "Assets\\_2DAdventureGame\\Scripts\\DamageZone.cs",
+              "ToolTip": "C:\\Robot Repair\\Robot Repair\\Assets\\_2DAdventureGame\\Scripts\\DamageZone.cs",
+              "RelativeToolTip": "Assets\\_2DAdventureGame\\Scripts\\DamageZone.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-08T15:36:36.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HealthCollectible.cs",
+              "DocumentMoniker": "C:\\Robot Repair\\Robot Repair\\Assets\\_2DAdventureGame\\Scripts\\HealthCollectible.cs",
+              "RelativeDocumentMoniker": "Assets\\_2DAdventureGame\\Scripts\\HealthCollectible.cs",
+              "ToolTip": "C:\\Robot Repair\\Robot Repair\\Assets\\_2DAdventureGame\\Scripts\\HealthCollectible.cs",
+              "RelativeToolTip": "Assets\\_2DAdventureGame\\Scripts\\HealthCollectible.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-08T15:14:35.228Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,9 +58,9 @@
               "RelativeDocumentMoniker": "Assets\\_2DAdventureGame\\Scripts\\PlayerController.cs",
               "ToolTip": "C:\\Robot Repair\\Robot Repair\\Assets\\_2DAdventureGame\\Scripts\\PlayerController.cs",
               "RelativeToolTip": "Assets\\_2DAdventureGame\\Scripts\\PlayerController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAzwD8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-24T06:06:47.083Z",
+              "WhenOpened": "2026-10-08T15:05:09.599Z",
               "EditorCaption": ""
             }
           ]
