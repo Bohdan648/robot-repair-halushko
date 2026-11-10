@@ -215,6 +215,33 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
     m_Priority: 0
+  TalkAction:
+    m_Name: Talk
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 9a6ea247-bec3-448d-9aa0-edafebc0e122
+    m_Processors:
+    m_Interactions:
+    m_SingletonActionBindings:
+    - m_Name:
+      m_Id: 39816d0b-a257-4f2a-8e91-7fc2c2dbbe23
+      m_Path: <Keyboard>/x
+      m_Interactions:
+      m_Processors:
+      m_Groups:
+      m_Action: Talk
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 28d817fa-2468-45e5-9a42-b69bb622e5bb
+      m_Path: <Keyboard>/leftBracket
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Talk
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+  talkDistance: 1.5
   projectilePrefab: {fileID: 5595929792378454596, guid: 3ec5c37d632c1f8439ad911434788818, type: 3}
   shootCooldown: 0.5
   speed: 3

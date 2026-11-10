@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:Style src="GameUI.uss" />
+    <ui:Template name="DialogueTemplate" src="NPCDialogue.uxml" />
+    <ui:Template name="EndScreenTemplate" src="EndScreen.uxml" />
+    <ui:VisualElement name="GameRoot" class="game-root" picking-mode="Ignore">
+        <ui:VisualElement name="HealthBarBackground" picking-mode="Ignore">
+            <ui:VisualElement name="HealthBarContainer" picking-mode="Ignore">
+                <ui:VisualElement name="HealthBar" picking-mode="Ignore" />
+            </ui:VisualElement>
+            <ui:VisualElement name="CharacterPortrait" picking-mode="Ignore" />
+            <ui:Label text="Здоров’я" name="HealthTitle" picking-mode="Ignore" />
+        </ui:VisualElement>
+        <ui:VisualElement name="RobotCounterBox" picking-mode="Ignore">
+            <ui:Label name="RobotCounter" text="Полагоджено 0 / 3" picking-mode="Ignore" />
+            <ui:Label text="Мета: полагодити всіх роботів" class="goal" picking-mode="Ignore" />
+        </ui:VisualElement>
+        <ui:Label name="ControlsHint" text="WASD / стрілки — рух     C — постріл     X — розмова" picking-mode="Ignore" />
+        <ui:Instance template="DialogueTemplate" name="NPCDialogue" picking-mode="Ignore" />
+        <ui:Instance template="EndScreenTemplate" name="EndScreen" picking-mode="Ignore" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (!broken)
+        if (!broken || (GameManager.instance != null && GameManager.instance.gameOver))
         {
             return;
         }
@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!broken)
+        if (!broken || (GameManager.instance != null && GameManager.instance.gameOver))
         {
             return;
         }
@@ -68,7 +68,7 @@ public class EnemyController : MonoBehaviour
 
     public void Fix()
     {
-        if (!broken)
+        if (!broken || (GameManager.instance != null && GameManager.instance.gameOver))
         {
             return;
         }
@@ -78,6 +78,18 @@ public class EnemyController : MonoBehaviour
         rigidbody2d.linearVelocity = Vector2.zero;
         rigidbody2d.simulated = false;
         animator.SetTrigger("Fixed");
-        Debug.Log("Ворога полагоджено.");
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.EnemyFixed();
+        }
+    }
+
+    public void StopForGameOver()
+    {
+        rigidbody2d.linearVelocity = Vector2.zero;
+        if (broken)
+        {
+            animator.speed = 0;
+        }
     }
 }

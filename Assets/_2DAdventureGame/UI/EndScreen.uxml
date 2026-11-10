@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:Style src="GameUI.uss" />
+    <ui:VisualElement name="WinScreenContainer" class="end-screen" picking-mode="Ignore">
+        <ui:Label text="ПЕРЕМОГА!" class="end-title" picking-mode="Ignore" />
+        <ui:VisualElement name="WinScreen" class="end-art" picking-mode="Ignore" />
+        <ui:Label text="Усіх роботів полагоджено. Новий початок через 3 с." class="end-caption" picking-mode="Ignore" />
+    </ui:VisualElement>
+    <ui:VisualElement name="LoseScreenContainer" class="end-screen" picking-mode="Ignore">
+        <ui:Label text="ПОРАЗКА" class="end-title" picking-mode="Ignore" />
+        <ui:VisualElement name="LoseScreen" class="end-art" picking-mode="Ignore" />
+        <ui:Label text="Здоров’я закінчилося. Спробуй ще раз через 3 с." class="end-caption" picking-mode="Ignore" />
+    </ui:VisualElement>
+</ui:UXML>

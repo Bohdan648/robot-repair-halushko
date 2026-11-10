@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:Style src="GameUI.uss" />
+    <ui:VisualElement name="Background" picking-mode="Ignore">
+        <ui:Label name="SpeakerName" text="Марта" picking-mode="Ignore" />
+        <ui:Label name="DialogueText" text="Натискай C, щоб лагодити роботів. Знайди всіх трьох і бережи здоров’я!" picking-mode="Ignore" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,25 @@
+.game-root { flex-grow: 1; width: 100%; height: 100%; color: rgb(255, 255, 255); }
+#HealthBarBackground { position: absolute; left: 20px; top: 18px; width: 18.75%; height: 15.37037%; flex-grow: 0; -unity-background-scale-mode: scale-to-fit; }
+#HealthBarContainer { position: absolute; left: 145px; top: 54px; width: 198px; height: 51px; overflow: hidden; }
+#HealthBar { width: 100%; height: 100%; -unity-background-scale-mode: stretch-to-fill; }
+#CharacterPortrait { position: absolute; left: 8px; top: 8px; width: 140px; height: 150px; -unity-background-scale-mode: scale-to-fit; }
+#HealthTitle { position: absolute; left: 152px; top: 18px; font-size: 22px; color: rgb(255, 240, 208); background-color: rgba(24, 27, 30, 0.85); padding: 2px 6px; border-radius: 4px; -unity-font-style: bold; }
+#RobotCounterBox { position: absolute; right: 24px; top: 30px; width: 410px; padding: 16px; background-color: rgba(24, 27, 30, 0.9); border-width: 2px; border-color: rgb(211, 171, 79); border-radius: 8px; }
+#RobotCounter { font-size: 28px; color: rgb(255, 220, 140); -unity-font-style: bold; }
+.goal { font-size: 20px; margin-top: 6px; }
+#ControlsHint { position: absolute; left: 20px; right: 20px; bottom: 12px; padding: 10px; font-size: 24px; white-space: normal; -unity-text-align: middle-center; background-color: rgba(15, 19, 23, 0.75); border-radius: 6px; }
+#NPCDialogue { position: absolute; left: 10%; right: 10%; top: 70%; bottom: 7%; display: none; }
+#Background { width: 100%; height: 100%; flex-grow: 1; padding: 32px 64px; background-color: rgba(0, 0, 0, 0); -unity-background-scale-mode: stretch-to-fill; }
+#SpeakerName { font-size: 28px; color: rgb(0, 92, 107); -unity-font-style: bold; margin-bottom: 12px; }
+#DialogueText { font-size: 28px; color: rgb(24, 57, 64); white-space: normal; }
+#EndScreen { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
+.end-screen { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: black; opacity: 0; transition-property: opacity; transition-duration: 1s; transition-timing-function: ease; }
+.end-title { position: absolute; left: 5%; right: 5%; top: 5%; font-size: 64px; -unity-font-style: bold; -unity-text-align: middle-center; color: rgb(255, 220, 140); }
+.end-art { position: absolute; left: 16%; right: 16%; top: 17%; bottom: 17%; -unity-background-scale-mode: scale-to-fit; }
+.end-caption { position: absolute; left: 8%; right: 8%; bottom: 6%; font-size: 28px; -unity-text-align: middle-center; white-space: normal; }
+#HealthBarBackground { background-image: url("project://database/Assets/_2DAdventureGame/Art/Ducko/UI/UIHealthFrame.png?fileID=21300000&guid=b47cdbd2062c5e64ba5a0bf3f6b045b1&type=3"); }
+#HealthBar { background-image: url("project://database/Assets/_2DAdventureGame/Art/Ducko/UI/UIHealthBar.png?fileID=21300000&guid=39fe000f2b6d9d04b93d6a76310e29aa&type=3"); }
+#CharacterPortrait { background-image: url("project://database/Assets/_2DAdventureGame/Art/Ducko/UI/CharacterPortrait.png?fileID=21300000&guid=0332b35b8fe3cf8458eb0558889493d1&type=3"); }
+#Background { background-image: url("project://database/Assets/_2DAdventureGame/Art/Ducko/UI/UIDialogueBox.png?fileID=21300000&guid=924827a9385ec3544b572966c8853b0a&type=3"); }
+#WinScreen { background-image: url("project://database/Assets/_2DAdventureGame/Tutorial_Demo/Demo_Art/Common/WinScreen.png?fileID=-848381713617584042&guid=d46766d63d5ca44c6b1a4d318b1eaf72&type=3"); }
+#LoseScreen { background-image: url("project://database/Assets/_2DAdventureGame/Tutorial_Demo/Demo_Art/Common/LoseScreen.png?fileID=-8697964458621741418&guid=68999694f4e00437a8c4f0b6053e3d45&type=3"); }
