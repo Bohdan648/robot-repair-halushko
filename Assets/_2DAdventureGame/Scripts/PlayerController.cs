@@ -1,76 +1,74 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    public float speed = 3.0f;
+    public InputAction MoveAction = new InputAction("Move", InputActionType.Value);
+    public InputAction LaunchAction = new InputAction("Launch", InputActionType.Button, "<Keyboard>/c");
 
-    [Header("Health Settings")]
+    public float speed = 3.0f;
     public int maxHealth = 5;
     public float timeInvincible = 2.0f;
 
-    [Header("Shooting Settings")]
     public GameObject projectilePrefab;
+    public float shootCooldown = 0.5f;
 
-    // Властивість для читання HP з інших скриптів (наприклад, HealthCollectible)
+    // health потрібна в наступних юнітах, Health збережена для наявної аптечки.
+    public int health => currentHealth;
     public int Health => currentHealth;
 
     private Rigidbody2D rigidbody2d;
     private Animator animator;
-
     private int currentHealth;
-    private bool isInvincible;
     private float invincibleTimer;
-
-    private Vector2 moveInput;
-    private Vector2 lookDirection = new Vector2(0, -1); // За замовчуванням дивиться вниз
+    private float shootTimer;
+    private Vector2 move;
+    private Vector2 moveDirection = new Vector2(1, 0);
 
     private void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
+    }
+
+    private void OnEnable()
+    {
+        MoveAction.Enable();
+        LaunchAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        MoveAction.Disable();
+        LaunchAction.Disable();
+        move = Vector2.zero;
     }
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        Debug.Log(currentHealth + "/" + maxHealth);
     }
 
     private void Update()
     {
-        // 1. Отримання вводу (WASD / Стрілки)
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        // ClampMagnitude прибирає прискорення під час руху по діагоналі.
+        move = Vector2.ClampMagnitude(MoveAction.ReadValue<Vector2>(), 1.0f);
 
-        moveInput = new Vector2(horizontal, vertical);
-
-        // 2. Оновлення напрямку погляду при русі
-        if (!Mathf.Approximately(moveInput.x, 0.0f) || !Mathf.Approximately(moveInput.y, 0.0f))
+        if (move.sqrMagnitude > 0.001f)
         {
-            lookDirection.Set(moveInput.x, moveInput.y);
-            lookDirection.Normalize();
+            moveDirection = move.normalized;
         }
 
-        // 3. Передача даних в Animator (якщо він є на об'єкті)
-        if (animator != null)
-        {
-            animator.SetFloat("Look X", lookDirection.x);
-            animator.SetFloat("Look Y", lookDirection.y);
-            animator.SetFloat("Speed", moveInput.magnitude);
-        }
+        animator.SetFloat("Look X", moveDirection.x);
+        animator.SetFloat("Look Y", moveDirection.y);
+        animator.SetFloat("Speed", move.magnitude);
 
-        // 4. Таймер невразливості після отримання шкоди
-        if (isInvincible)
-        {
-            invincibleTimer -= Time.deltaTime;
-            if (invincibleTimer <= 0)
-            {
-                isInvincible = false;
-            }
-        }
+        invincibleTimer = Mathf.Max(0, invincibleTimer - Time.deltaTime);
+        shootTimer = Mathf.Max(0, shootTimer - Time.deltaTime);
 
-        // 5. Постріл на клавішу C
-        if (Input.GetKeyDown(KeyCode.C))
+        if (LaunchAction.WasPressedThisFrame() && shootTimer <= 0)
         {
             Launch();
         }
@@ -78,48 +76,54 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Фізичне переміщення персонажа
-        Vector2 position = rigidbody2d.position;
-        position += moveInput.normalized * speed * Time.fixedDeltaTime;
+        Vector2 position = rigidbody2d.position + move * speed * Time.fixedDeltaTime;
         rigidbody2d.MovePosition(position);
     }
 
-    // Зміна здоров'я (викликається з DamageZone та HealthCollectible)
     public void ChangeHealth(int amount)
     {
-        if (amount < 0)
+        if (amount < 0 && invincibleTimer > 0)
         {
-            if (isInvincible) return;
-
-            isInvincible = true;
-            invincibleTimer = timeInvincible;
-            if (animator != null) animator.SetTrigger("Hit");
+            return;
         }
 
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        int newHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        if (newHealth == currentHealth)
+        {
+            return;
+        }
+
+        if (amount < 0)
+        {
+            invincibleTimer = timeInvincible;
+            animator.SetTrigger("Hit");
+        }
+
+        currentHealth = newHealth;
+        Debug.Log(currentHealth + "/" + maxHealth);
     }
 
-    // Логіка створення та запуску снаряда
     private void Launch()
     {
         if (projectilePrefab == null)
         {
-            Debug.LogWarning("Префаб снаряда не призначено в Inspector!");
+            Debug.LogWarning("Признач снаряд у полі Projectile Prefab.");
             return;
         }
 
-        // Створюємо об'єкт снаряда із легким зсувом вгору від центру гравця
-        GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+        GameObject projectileObject = Instantiate(projectilePrefab,
+            rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         Projectile projectile = projectileObject.GetComponent<Projectile>();
 
-        if (projectile != null)
+        if (projectile == null)
         {
-            projectile.Launch(lookDirection, 300f);
+            Debug.LogError("На префабі снаряда немає компонента Projectile.");
+            Destroy(projectileObject);
+            return;
         }
 
-        if (animator != null)
-        {
-            animator.SetTrigger("Launch");
-        }
+        projectile.Launch(moveDirection, 300.0f);
+        shootTimer = shootCooldown;
+        animator.SetTrigger("Launch");
     }
 }

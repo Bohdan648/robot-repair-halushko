@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5547136931944622860}
   - component: {fileID: 899269779351121946}
   - component: {fileID: 9106946966358641132}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529573432498209735}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.035018176, y: 0.007673159, z: 0.010770242, w: 0.9992993}
-  m_LocalPosition: {x: -1.99, y: 0.01, z: -5.4115e-10}
-  m_LocalScale: {x: 1, y: 0.83914, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -4.023, y: 0.838, z: 1.206}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5824820451693193968
 SpriteRenderer:
   serializedVersion: 2
@@ -85,9 +85,9 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 024234b7ea460344ab91dce1c9836f9c, type: 3}
+  m_Sprite: {fileID: 339654822, guid: d2a0ff0a7a0b76349865662d016981be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.77, y: 2.21}
@@ -105,98 +105,118 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d77fbfe208577604dadfa66654fbc602, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   MoveAction:
     m_Name: Move
     m_Type: 0
     m_ExpectedControlType: Vector2
     m_Id: dfda343d-c475-4a75-9530-a6b0829d0fea
-    m_Processors: 
-    m_Interactions: 
+    m_Processors:
+    m_Interactions:
     m_SingletonActionBindings:
     - m_Name: 2D Vector
       m_Id: ffcdee91-3145-4764-a1ae-e92c87f84a1b
       m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
+      m_Interactions:
+      m_Processors:
+      m_Groups:
       m_Action: Move
       m_Flags: 4
     - m_Name: up
       m_Id: de05c83e-77bf-4e8f-8be9-a7d8f24c4a1d
       m_Path: <Keyboard>/upArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
+      m_Interactions:
+      m_Processors:
+      m_Groups:
       m_Action: Move
       m_Flags: 8
     - m_Name: down
       m_Id: 01771f28-6c5d-4e4c-85e7-7f38518222e6
       m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
+      m_Interactions:
+      m_Processors:
+      m_Groups:
       m_Action: Move
       m_Flags: 8
     - m_Name: left
       m_Id: 28d6add5-b29a-4572-b4e8-ea397cd66566
       m_Path: <Keyboard>/leftArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
+      m_Interactions:
+      m_Processors:
+      m_Groups:
       m_Action: Move
       m_Flags: 8
     - m_Name: right
       m_Id: b755e1bf-1f41-45c7-9344-54f2eb49a4c8
       m_Path: <Keyboard>/rightArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
+      m_Interactions:
+      m_Processors:
+      m_Groups:
       m_Action: Move
       m_Flags: 8
     - m_Name: 2D Vector
       m_Id: 8dd9fbc5-eaf6-4846-a7f1-93ba4b468463
       m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
+      m_Interactions:
+      m_Processors:
+      m_Groups:
       m_Action: Move
       m_Flags: 4
     - m_Name: up
       m_Id: 5fb46d3a-5f9a-4b99-9f1e-3b60db044583
       m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
+      m_Interactions:
+      m_Processors:
+      m_Groups:
       m_Action: Move
       m_Flags: 8
     - m_Name: down
       m_Id: 689044ee-c470-41c4-b790-d1f1bc4e5edd
       m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
+      m_Interactions:
+      m_Processors:
+      m_Groups:
       m_Action: Move
       m_Flags: 8
     - m_Name: left
       m_Id: c0f2a49c-faae-4758-b361-434a7af196c6
       m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
+      m_Interactions:
+      m_Processors:
+      m_Groups:
       m_Action: Move
       m_Flags: 8
     - m_Name: right
       m_Id: f68f31b0-7626-478b-97bb-c5f3161070c0
       m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
+      m_Interactions:
+      m_Processors:
+      m_Groups:
       m_Action: Move
       m_Flags: 8
     m_Flags: 0
     m_Priority: 0
+  LaunchAction:
+    m_Name: Launch
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: cc0eb005-31d8-45a4-9d0a-cec746d6eb74
+    m_Processors:
+    m_Interactions:
+    m_SingletonActionBindings:
+    - m_Name:
+      m_Id: 6bfe5184-01ca-4d59-96da-ca4610b5dee4
+      m_Path: <Keyboard>/c
+      m_Interactions:
+      m_Processors:
+      m_Groups:
+      m_Action: Launch
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+  projectilePrefab: {fileID: 5595929792378454596, guid: 3ec5c37d632c1f8439ad911434788818, type: 3}
+  shootCooldown: 0.5
   speed: 3
   maxHealth: 5
   timeInvincible: 2
@@ -261,7 +281,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.85}
+  m_Offset: {x: 0, y: 0.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -283,14 +303,14 @@ Animator:
   m_GameObject: {fileID: 1529573432498209735}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 647a9ec9e2145e948809ae681edc5614, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0

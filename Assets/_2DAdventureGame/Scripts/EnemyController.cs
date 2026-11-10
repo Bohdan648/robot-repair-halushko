@@ -1,59 +1,83 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
 public class EnemyController : MonoBehaviour
 {
-    public float speed = 3.0f;
+    public float speed = 1.0f;
     public bool vertical;
     public float changeTime = 3.0f;
 
-    Rigidbody2D rigidbody2d;
-    float timer;
-    int direction = 1;
-    Animator animator;
+    public bool isBroken => broken;
 
-    void Start()
+    private Rigidbody2D rigidbody2d;
+    private Animator animator;
+    private float timer;
+    private int direction = 1;
+    private bool broken = true;
+
+    private void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         timer = changeTime;
     }
 
-    void Update()
+    private void Update()
     {
+        if (!broken)
+        {
+            return;
+        }
+
         timer -= Time.deltaTime;
-        if (timer < 0)
+        if (timer <= 0)
         {
             direction = -direction;
             timer = changeTime;
         }
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        Vector2 position = rigidbody2d.position;
-
-        if (vertical)
+        if (!broken)
         {
-            position.y = position.y + speed * direction * Time.deltaTime;
-            animator.SetFloat("Move X", 0);
-            animator.SetFloat("Move Y", direction);
-        }
-        else
-        {
-            position.x = position.x + speed * direction * Time.deltaTime;
-            animator.SetFloat("Move X", direction);
-            animator.SetFloat("Move Y", 0);
+            return;
         }
 
-        rigidbody2d.MovePosition(position);
+        Vector2 movement = vertical ? Vector2.up : Vector2.right;
+        movement *= direction;
+
+        animator.SetFloat("Move X", movement.x);
+        animator.SetFloat("Move Y", movement.y);
+        rigidbody2d.MovePosition(rigidbody2d.position + movement * speed * Time.fixedDeltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerController player = other.gameObject.GetComponent<PlayerController>();
+        if (!broken)
+        {
+            return;
+        }
+
+        PlayerController player = other.GetComponent<PlayerController>();
         if (player != null)
         {
             player.ChangeHealth(-1);
         }
+    }
+
+    public void Fix()
+    {
+        if (!broken)
+        {
+            return;
+        }
+
+        broken = false;
+        // Вимикаємо фізику: ворог більше не рухається й не завдає шкоди.
+        rigidbody2d.linearVelocity = Vector2.zero;
+        rigidbody2d.simulated = false;
+        animator.SetTrigger("Fixed");
+        Debug.Log("Ворога полагоджено.");
     }
 }
