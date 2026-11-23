@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NonPlayerCharacter
   dialogueBubble: {fileID: 1901000001}
   characterName: "Марта"
-  dialogue: "Натискай C, щоб лагодити роботів. Знайди всіх трьох і бережи здоров’я!"
+  dialogue: "Полагодь трьох роботів у дворі. C — постріл. Обходь розливи, а біля червоного робота чекай розвороту!"
 --- !u!95 &6774350639308732094
 Animator:
   serializedVersion: 7

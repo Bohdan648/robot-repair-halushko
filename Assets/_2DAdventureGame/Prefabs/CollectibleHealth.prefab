@@ -151,3 +151,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3da25d2a16ef424f96c877d815c8500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthCollectible
+  amount: 1

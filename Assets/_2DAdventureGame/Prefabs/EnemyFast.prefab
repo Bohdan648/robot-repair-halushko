@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3077000000
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1126997969750797684, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+      propertyPath: m_Name
+      value: EnemyFast
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485056623052980468, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: '0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485056623052980468, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: '0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485056623052980468, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: '0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582416137536857803, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+      propertyPath: speed
+      value: '2'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582416137536857803, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+      propertyPath: changeTime
+      value: '1.5'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625008159521665317, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+      propertyPath: m_Color.r
+      value: '1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625008159521665317, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+      propertyPath: m_Color.g
+      value: '0.22'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625008159521665317, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+      propertyPath: m_Color.b
+      value: '0.22'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+--- !u!1 &3077000001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1126997969750797684, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+  m_PrefabInstance: {fileID: 3077000000}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3077000002 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4485056623052980468, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+  m_PrefabInstance: {fileID: 3077000000}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &3077000003 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5625008159521665317, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+  m_PrefabInstance: {fileID: 3077000000}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &3077000004 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1765203490876977507, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+  m_PrefabInstance: {fileID: 3077000000}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &3077000005 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4073185109918678314, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+  m_PrefabInstance: {fileID: 3077000000}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3077000006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4582416137536857803, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+  m_PrefabInstance: {fileID: 3077000000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3077000001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8872c38e3199bac4e952537d6e9b3428, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+--- !u!95 &3077000007 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6774350639308732094, guid: f28ddd69a7dded34e9f7ce32da1494a1, type: 3}
+  m_PrefabInstance: {fileID: 3077000000}
+  m_PrefabAsset: {fileID: 0}
