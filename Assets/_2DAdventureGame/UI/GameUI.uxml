@@ -15,6 +15,7 @@
             <ui:Label text="Мета: полагодити всіх роботів" class="goal" picking-mode="Ignore" />
         </ui:VisualElement>
         <ui:Label name="ControlsHint" text="WASD / стрілки — рух     C — постріл     X — розмова" picking-mode="Ignore" />
+        <ui:Label name="SwitchTimer" text="" picking-mode="Ignore" />
         <ui:Instance template="DialogueTemplate" name="NPCDialogue" picking-mode="Ignore" />
         <ui:Instance template="EndScreenTemplate" name="EndScreen" picking-mode="Ignore" />
     </ui:VisualElement>

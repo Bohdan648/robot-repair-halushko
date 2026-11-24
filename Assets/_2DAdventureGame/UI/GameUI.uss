@@ -7,6 +7,7 @@
 #RobotCounterBox { position: absolute; right: 24px; top: 30px; width: 410px; padding: 16px; background-color: rgba(24, 27, 30, 0.9); border-width: 2px; border-color: rgb(211, 171, 79); border-radius: 8px; }
 #RobotCounter { font-size: 28px; color: rgb(255, 220, 140); -unity-font-style: bold; }
 .goal { font-size: 20px; margin-top: 6px; }
+#SwitchTimer { position: absolute; right: 24px; top: 165px; width: 410px; padding: 12px; font-size: 26px; white-space: normal; color: rgb(210, 255, 245); background-color: rgba(15, 35, 40, 0.92); border-width: 2px; border-color: rgb(75, 210, 195); border-radius: 8px; display: none; }
 #ControlsHint { position: absolute; left: 20px; right: 20px; bottom: 12px; padding: 10px; font-size: 24px; white-space: normal; -unity-text-align: middle-center; background-color: rgba(15, 19, 23, 0.75); border-radius: 6px; }
 #NPCDialogue { position: absolute; left: 10%; right: 10%; top: 70%; bottom: 7%; display: none; }
 #Background { width: 100%; height: 100%; flex-grow: 1; padding: 32px 64px; background-color: rgba(0, 0, 0, 0); -unity-background-scale-mode: stretch-to-fill; }

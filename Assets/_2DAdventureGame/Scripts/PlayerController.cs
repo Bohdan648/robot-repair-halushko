@@ -142,11 +142,6 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        Debug.Log("[NPC] Клавішу розмови натиснуто. Маска шару: " + npcMask
-            + "; колайдер: " + (hit.collider != null ? hit.collider.name : "немає")
-            + "; NPC: " + (npc != null ? npc.name : "не знайдено")
-            + "; гравець: " + rigidbody2d.position + "; напрямок: " + moveDirection);
-
         if (npc != null)
         {
             if (UIHandler.instance != null)

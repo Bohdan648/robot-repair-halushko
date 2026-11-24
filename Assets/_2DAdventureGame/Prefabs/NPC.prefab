@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NonPlayerCharacter
   dialogueBubble: {fileID: 1901000001}
   characterName: "Марта"
-  dialogue: "Полагодь трьох роботів у дворі. C — постріл. Обходь розливи, а біля червоного робота чекай розвороту!"
+  dialogue: "Полагодь трьох роботів. Синя плита ненадовго відкриває короткий прохід. Не встиг — обійди воду знизу!"
 --- !u!95 &6774350639308732094
 Animator:
   serializedVersion: 7
