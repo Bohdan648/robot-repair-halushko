@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
 
     private Rigidbody2D rigidbody2d;
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
     private float timer;
     private int direction = 1;
     private bool broken = true;
@@ -19,6 +20,7 @@ public class EnemyController : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         timer = changeTime;
     }
 
@@ -77,7 +79,16 @@ public class EnemyController : MonoBehaviour
         // Вимикаємо фізику: ворог більше не рухається й не завдає шкоди.
         rigidbody2d.linearVelocity = Vector2.zero;
         rigidbody2d.simulated = false;
+        // Прибираємо червоне тонування EnemyFast, щоб було видно стан ремонту.
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.white;
+        }
         animator.SetTrigger("Fixed");
+        if (GameFeedback.instance != null)
+        {
+            GameFeedback.instance.PlayRepair();
+        }
         if (GameManager.instance != null)
         {
             GameManager.instance.EnemyFixed();

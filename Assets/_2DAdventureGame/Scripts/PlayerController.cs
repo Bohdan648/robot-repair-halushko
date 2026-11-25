@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 3.0f;
     public int maxHealth = 5;
     public float timeInvincible = 2.0f;
+    [Min(0.05f)] public float healthFlashDuration = 0.15f;
 
     public GameObject projectilePrefab;
     public float shootCooldown = 0.5f;
@@ -22,6 +24,9 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rigidbody2d;
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
+    private Color normalColor;
+    private Coroutine healthFlash;
     private int currentHealth;
     private float invincibleTimer;
     private float shootTimer;
@@ -33,6 +38,8 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        normalColor = spriteRenderer != null ? spriteRenderer.color : Color.white;
         currentHealth = maxHealth;
 
         // У старій копії префаба нова дія могла зберегтися без прив'язки.
@@ -58,6 +65,15 @@ public class PlayerController : MonoBehaviour
         MoveAction.Disable();
         LaunchAction.Disable();
         TalkAction.Disable();
+        if (healthFlash != null)
+        {
+            StopCoroutine(healthFlash);
+            healthFlash = null;
+        }
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = normalColor;
+        }
         ClearNpcBubble();
         move = Vector2.zero;
     }
@@ -202,10 +218,38 @@ public class PlayerController : MonoBehaviour
         }
 
         currentHealth = newHealth;
+        if (GameFeedback.instance != null)
+        {
+            if (amount < 0)
+            {
+                GameFeedback.instance.PlayDamage();
+            }
+            else
+            {
+                GameFeedback.instance.PlayHeal();
+            }
+        }
+        if (spriteRenderer != null)
+        {
+            if (healthFlash != null)
+            {
+                StopCoroutine(healthFlash);
+            }
+            healthFlash = StartCoroutine(FlashHealth(amount < 0));
+        }
         if (UIHandler.instance != null)
         {
             UIHandler.instance.SetHealthValue(currentHealth / (float)maxHealth);
         }
+    }
+
+    private IEnumerator FlashHealth(bool damaged)
+    {
+        spriteRenderer.color = damaged
+            ? new Color(1, 0.25f, 0.25f) : new Color(0.25f, 1, 0.5f);
+        yield return new WaitForSeconds(healthFlashDuration);
+        spriteRenderer.color = normalColor;
+        healthFlash = null;
     }
 
     public void StopForGameOver()
