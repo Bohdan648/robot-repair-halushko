@@ -12,7 +12,7 @@
         </ui:VisualElement>
         <ui:VisualElement name="RobotCounterBox" picking-mode="Ignore">
             <ui:Label name="RobotCounter" text="Полагоджено 0 / 3" picking-mode="Ignore" />
-            <ui:Label text="Мета: полагодити всіх роботів" class="goal" picking-mode="Ignore" />
+            <ui:Label text="Полагодь усіх роботів" class="goal" picking-mode="Ignore" />
         </ui:VisualElement>
         <ui:Label name="ControlsHint" text="WASD / стрілки — рух     C — постріл     X — розмова" picking-mode="Ignore" />
         <ui:Label name="SwitchTimer" text="" picking-mode="Ignore" />
