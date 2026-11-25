@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:Style src="StartUI.uss" />
+    <ui:VisualElement name="MenuRoot">
+        <ui:VisualElement name="MenuCard">
+            <ui:Label text="ROBOT REPAIR · ВЛАСНИЙ РІВЕНЬ" class="menu-kicker" />
+            <ui:VisualElement name="MenuPortrait" picking-mode="Ignore" />
+            <ui:Label text="Аварійний двір" name="GameTitle" />
+            <ui:Label text="Полагодь трьох роботів і збережи здоров’я, обходячи воду та небезпечні розливи." name="GameGoal" />
+            <ui:Label text="WASD / стрілки — рух     C — постріл     X / Ч — розмова" class="menu-text" />
+            <ui:Label text="Синя плита відчиняє короткий прохід на 4 секунди. Також є довший обхід." class="menu-text" />
+            <ui:Button name="StartButton" text="Почати гру" />
+            <ui:Button name="ExitButton" text="Вийти" />
+            <ui:Label text="Версія 1.0.0 · Windows" name="VersionLabel" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
